@@ -13,6 +13,7 @@ function ReturnedValue(RV) {
 		clicked = RV;
 		PlayerPatterns()
 		ChangeImg()
+		x = 0;
 		TorF = false;
 		Reset()
 	}
@@ -36,6 +37,7 @@ function PlayerPatterns() {
 			Player1.push(clicked);
 			Psign = 'o';
 			Pturn = 2;
+			checkP1()
 		}
 		else 
 		{
@@ -47,9 +49,9 @@ function PlayerPatterns() {
 		if (scan < -1)
 		{
 			Player2.push(clicked);
-			console.log(Psign);
 			Psign = 'x';
 			Pturn = 1;
+			checkP2()
 		}
 		else
 		{
@@ -63,4 +65,35 @@ function ChangeImg() {
 	{
 		document.getElementById(clicked).innerHTML = Psign;
 	}
+}
+x = 0;
+y = 0;
+checktesting = [];
+r1 = [1,2,3]
+g1 = [1,4,7]; //13
+g3 = [3,6,9]; //18
+r3 = [7,8,9]; //24
+function testing(test) {
+	return test == r1[x];
+}
+
+
+lrdiagonal = [1,5,9]; //15
+rldiagonal = [3,5,7]; //15
+r2 = [4,5,6]; //15
+g2 = [2,5,8]; //15
+
+function checkP1() {
+	while (x <= y)
+	{
+		check = Player1.find(testing);
+		checktesting.push(check);
+		console.log(checktesting);
+		x++;
+	}
+	y++;
+}
+
+function checkP2() {
+	check = Player2.find(testing);
 }
