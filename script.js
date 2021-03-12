@@ -1,5 +1,6 @@
 Player1 = [];
 Player2 = [];
+
 Pturn = 1;
 Psign = '';
 clicked = '';
@@ -60,6 +61,6 @@ function PlayerPatterns() {
 function ChangeImg() {
 	if (imgTorF)
 	{
-		document.getElementById(clicked).src = 'images/' + Psign + '.png';
+		document.getElementById(clicked).innerHTML = Psign;
 	}
 }

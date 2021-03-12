@@ -3,34 +3,37 @@
 <head>
 	<title></title>
 	<script src="script.js"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<style type="text/css">
-		div.TTTbox {
-			width: 210px;
-			height: 210px;
+		.TTTbox {
+			width: 2em;
+			height: 2em;
 			text-align: center;
+			font-size: 8em;
 			border-style: solid;
+		}
+		.center {
+			margin-left: auto;
+			margin-right: auto;
 		}
 	</style>
 </head>
 <body>
-<div class="container">
-	<div class="row">
-		<div class="col; TTTbox" onclick="ReturnedValue('1')"><img id="1"></div>
-		<div class="col; TTTbox" onclick="ReturnedValue('2')"><img id="2"></div>
-		<div class="col; TTTbox" onclick="ReturnedValue('3')"><img id="3"></div>
-	</div>
-	<div class="row">
-		<div class="col; TTTbox" onclick="ReturnedValue('4')"><img id="4"></div>
-		<div class="col; TTTbox" onclick="ReturnedValue('5')"><img id="5"></div>
-		<div class="col; TTTbox" onclick="ReturnedValue('6')"><img id="6"></div>
-	</div>
-	<div class="row">
-		<div class="col; TTTbox" onclick="ReturnedValue('7')"><img id="7"></div>
-		<div class="col; TTTbox" onclick="ReturnedValue('8')"><img id="8"></div>
-		<div class="col; TTTbox" onclick="ReturnedValue('9')"><img id="9"></div>
-	</div>
-</div>
+<table class="center">
+	<tr>
+		<td class="TTTbox" onclick="ReturnedValue('1')" id="1"></td>
+		<td class="TTTbox" onclick="ReturnedValue('2')" id="2"></td>
+		<td class="TTTbox" onclick="ReturnedValue('3')" id="3"></td>
+	</tr>
+	<tr>
+		<td class="TTTbox" onclick="ReturnedValue('4')" id="4"></td>
+		<td class="TTTbox" onclick="ReturnedValue('5')" id="5"></td>
+		<td class="TTTbox" onclick="ReturnedValue('6')" id="6"></td>
+	</tr>
+	<tr>
+		<td class="TTTbox" onclick="ReturnedValue('7')" id="7"></td>
+		<td class="TTTbox" onclick="ReturnedValue('8')" id="8"></td>
+		<td class="TTTbox" onclick="ReturnedValue('9')" id="9"></td>
+	</tr>
+</table>
 </body>
 </html>
