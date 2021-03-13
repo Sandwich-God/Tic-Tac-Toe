@@ -69,12 +69,12 @@ function ChangeImg() {
 x = 0;
 y = 0;
 checktesting = [];
-r1 = [1,2,3]
+r1 = [1,2,3];
 g1 = [1,4,7]; //13
 g3 = [3,6,9]; //18
 r3 = [7,8,9]; //24
 function testing(test) {
-	return test == r1[x];
+	return test == '1';
 }
 
 
