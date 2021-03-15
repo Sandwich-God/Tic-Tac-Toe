@@ -6,6 +6,7 @@ Psign = '';
 clicked = '';
 TorF = true;
 imgTorF = true;
+RIV = 1;
 
 function ReturnedValue(RV) {
 	if (TorF)
@@ -15,15 +16,31 @@ function ReturnedValue(RV) {
 		ChangeImg()
 		x = 0;
 		TorF = false;
-		Reset()
+		EndTurn()
 	}
 	
 }
 
-function Reset() {
+function EndTurn() {
 	clicked = '';
 	TorF = true;
 	imgTorF = true;
+}
+
+function ResetButton() {
+	while (RIV != 10)
+	{
+		document.getElementById(RIV).innerHTML = '';
+		RIV++;
+	}
+	Player1 = [];
+	Player2 = [];
+	Pturn = 1;
+	Psign = '';
+	clicked = '';
+	TorF = true;
+	imgTorF = true;
+	RIV = 1;
 }
 
 function PlayerPatterns() {
