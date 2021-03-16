@@ -41,6 +41,8 @@ function ResetButton() {
 	TorF = true;
 	imgTorF = true;
 	RIV = 1;
+	x = 0;
+	y = 0;
 }
 
 function PlayerPatterns() {
@@ -85,32 +87,48 @@ function ChangeImg() {
 }
 x = 0;
 y = 0;
-checktesting = [];
-r1 = [1,2,3];
-g1 = [1,4,7]; //13
-g3 = [3,6,9]; //18
-r3 = [7,8,9]; //24
+var win = {
+	r1: ['1','2','3'],
+	r2: ['4','5','6'],
+	r3: ['7','8','9'],
+	g1: ['1','4','7'],
+	g2: ['2','5','8'],
+	g3: ['3','6','9'],
+	lrdiagonal: ['1','5','9'],
+	rldiagonal: ['3','5','7']
+};
 function testing(test) {
-	return test == '1';
+	return test == r1[x];
 }
 
-
-lrdiagonal = [1,5,9]; //15
-rldiagonal = [3,5,7]; //15
-r2 = [4,5,6]; //15
-g2 = [2,5,8]; //15
-
 function checkP1() {
-	while (x <= y)
+/*	while (x <= y)
 	{
 		check = Player1.find(testing);
 		checktesting.push(check);
 		console.log(checktesting);
 		x++;
 	}
-	y++;
+*/
+	while (x < 3)
+	{
+		testingv = Player1.includes(win.r1[x]);
+		console.log(testingv);
+		if (testingv) {
+
+		}
+		x++;
+	}
 }
 
 function checkP2() {
-	check = Player2.find(testing);
+	while (x < 3)
+	{
+		testingv = Player2.includes(win.r1[x]);
+		console.log(testingv);
+		if (testingv) {
+
+		}
+		x++;
+	}
 }
