@@ -4,10 +4,8 @@ Player2 = [];
 Pturn = 1;
 Psign = '';
 clicked = '';
-TorF = true;
 imgTorF = true;
-endTorF = true;
-RIV = 1;
+TorF = true;
 
 function ReturnedValue(RV) {
 	if (TorF)
@@ -15,30 +13,14 @@ function ReturnedValue(RV) {
 		clicked = RV;
 		PlayerPatterns()
 		ChangeImg()
-		x = 0;
-		y = 0;
-		TorF = false;
-		if (endTorF)
-		{
-			EndTurn()
-		}
 	}
-	
 }
-
-function EndTurn() {
-	clicked = '';
-	TorF = true;
-	imgTorF = true;
-}
-
 function ResetButton() {
 	while (RIV != 10)
 	{
 		document.getElementById(RIV).innerHTML = '';
 		RIV++;
 	}
-	document.getElementById('winner').innerHTML = '';
 	Player1 = [];
 	Player2 = [];
 	Pturn = 1;
@@ -46,7 +28,6 @@ function ResetButton() {
 	clicked = '';
 	TorF = true;
 	imgTorF = true;
-	endTorF = true;
 	RIV = 1;
 	x = 0;
 	y = 0;
@@ -62,8 +43,8 @@ function PlayerPatterns() {
 		{
 			Player1.push(clicked);
 			Psign = 'o';
-			checkP1()
 			Pturn = 2;
+			check()
 		}
 		else 
 		{
@@ -76,7 +57,6 @@ function PlayerPatterns() {
 		{
 			Player2.push(clicked);
 			Psign = 'x';
-			checkP2()
 			Pturn = 1;
 		}
 		else
@@ -91,15 +71,13 @@ function ChangeImg() {
 	{
 		document.getElementById(clicked).innerHTML = Psign;
 	}
+	clicked = '';
+	TorF = true;
+	imgTorF = true;
+	x = 0;
+	y = 0;
 }
-x = 0;
-y = 0;
-
-test = 0;
-// OArray = [win.r1, win.r2, win.r3, win.g1, win.g2, win.g3, win.lrd, win.rld];
-// IWOA = OArray[test];
-
-function checkP1() {
+function check() {
 	for (y = 0; y < 8; y++)
 	{
 		for (x = 0; x < 3; x++)
@@ -108,7 +86,7 @@ function checkP1() {
 			checkP1A()
 		}
 		
-	}
+	}	
 }
 function checkP1A() {
 	if (testingv)
@@ -118,8 +96,7 @@ function checkP1A() {
 		{
 			if (winP[y].CHTorF.length > 2)
 			{
-				document.getElementById('winner').innerHTML = 'You win player ' + Pturn + '!';
-				endTorF = false;
+				console.log('win');
 			}
 		}
 	}
@@ -129,75 +106,38 @@ function checkP1A() {
 	}
 }
 
-function checkP2() {
-	for (y = 0; y < 8; y++)
-	{
-		for (x = 0; x < 3; x++)
-		{
-			testingv = Player2.includes(winP[y].win[x]);
-			checkP2A()
-		}
-		
-	}
-}
-function checkP2A() {
-	if (testingv)
-	{
-		winP[y].CHTorF2.push(testingv);
-		if (x == 2)
-		{
-			if (winP[y].CHTorF2.length > 2)
-			{
-				document.getElementById('winner').innerHTML = 'You win player ' + Pturn + '!';
-				endTorF = false;
-			}
-		}
-	}
-	else
-	{
-		winP[y].CHTorF2 = [];
-	}
-}
 
 var winP = [
 	{
 	win: ['1','2','3'],
-	CHTorF: [],
-	CHTorF2: []
+	CHTorF: []
 },
 	{
 	win: ['4','5','6'],
-	CHTorF: [],
-	CHTorF2: []
+	CHTorF: []
 },
 	{
 	win: ['7','8','9'],
-	CHTorF: [],
-	CHTorF2: []
+	CHTorF: []
 },
 	{
 	win: ['1','4','7'],
-	CHTorF: [],
-	CHTorF2: []
+	CHTorF: []
 },
 	{
 	win: ['2','5','8'],
-	CHTorF: [],
-	CHTorF2: []
+	CHTorF: []
 },
 	{
 	win: ['3','6','9'],
-	CHTorF: [],
-	CHTorF2: []
+	CHTorF: []
 },
 	{
 	win: ['1','5','9'],
-	CHTorF: [],
-	CHTorF2: []
+	CHTorF: []
 },
 	{
 	win: ['3','5','7'],
-	CHTorF: [],
-	CHTorF2: []
+	CHTorF: []
 	}
 ];
