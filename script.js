@@ -1,6 +1,6 @@
 Player1 = [];
 Player2 = [];
-
+CV = '';
 Pturn = 1;
 Psign = '';
 clicked = '';
@@ -8,6 +8,7 @@ TorF = true;
 imgTorF = true;
 endTorF = true;
 RIV = 1;
+End = false;
 
 function ReturnedValue(RV) {
 	if (TorF)
@@ -38,6 +39,16 @@ function ResetButton() {
 		document.getElementById(RIV).innerHTML = '';
 		RIV++;
 	}
+	if (End)
+	{
+		for (C = 0; C < 3; C++)
+		{
+			document.getElementById(winP[CV].win[C]).style.color = 'black';
+		}
+	}
+	
+	C = 0;
+	CV = '';
 	document.getElementById('winner').innerHTML = '';
 	Player1 = [];
 	Player2 = [];
@@ -47,6 +58,7 @@ function ResetButton() {
 	TorF = true;
 	imgTorF = true;
 	endTorF = true;
+	End = false;
 	RIV = 1;
 	x = 0;
 	y = 0;
@@ -119,6 +131,13 @@ function checkP1A() {
 			if (winP[y].CHTorF.length > 2)
 			{
 				document.getElementById('winner').innerHTML = 'You win player ' + Pturn + '!';
+				for (C = 0; C < 3; C++)
+				{
+					document.getElementById(winP[y].win[C]).style.color = 'blue';
+					CV = y;
+					End = true;
+				}
+				C = 0;
 				endTorF = false;
 			}
 		}
@@ -137,7 +156,6 @@ function checkP2() {
 			testingv = Player2.includes(winP[y].win[x]);
 			checkP2A()
 		}
-		
 	}
 }
 function checkP2A() {
@@ -149,6 +167,13 @@ function checkP2A() {
 			if (winP[y].CHTorF2.length > 2)
 			{
 				document.getElementById('winner').innerHTML = 'You win player ' + Pturn + '!';
+				for (C = 0; C < 3; C++)
+				{
+					document.getElementById(winP[y].win[C]).style.color = 'blue';
+					CV = y;
+					End = true;
+				}
+				C = 0;
 				endTorF = false;
 			}
 		}
