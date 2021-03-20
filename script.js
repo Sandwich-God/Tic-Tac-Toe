@@ -87,48 +87,93 @@ function ChangeImg() {
 }
 x = 0;
 y = 0;
-var win = {
-	r1: ['1','2','3'],
-	r2: ['4','5','6'],
-	r3: ['7','8','9'],
-	g1: ['1','4','7'],
-	g2: ['2','5','8'],
-	g3: ['3','6','9'],
-	lrdiagonal: ['1','5','9'],
-	rldiagonal: ['3','5','7']
-};
-function testing(test) {
-	return test == r1[x];
-}
+
+test = 0;
+// OArray = [win.r1, win.r2, win.r3, win.g1, win.g2, win.g3, win.lrd, win.rld];
+// IWOA = OArray[test];
 
 function checkP1() {
-/*	while (x <= y)
-	{
-		check = Player1.find(testing);
-		checktesting.push(check);
-		console.log(checktesting);
-		x++;
-	}
-*/
 	while (x < 3)
 	{
-		testingv = Player1.includes(win.r1[x]);
-		console.log(testingv);
-		if (testingv) {
-
-		}
+		testingv = Player1.includes(winP[y].win[x]);
+		checkP1A()
 		x++;
+	}
+}
+function checkP1A() {
+	if (testingv)
+	{
+		winP[y].CHTorF.push(testingv);
+		if (x == 2)
+		{
+			if (winP[y].CHTorF.length > 2)
+			{
+				console.log('win');
+			}
+			else
+			{
+				winP[y].CHTorF = [];
+			}
+		}
+	}
+	if (y != 8)
+	{
+		checkP1()
 	}
 }
 
 function checkP2() {
 	while (x < 3)
 	{
-		testingv = Player2.includes(win.r1[x]);
-		console.log(testingv);
-		if (testingv) {
-
-		}
+		testingv = Player2.includes(winP[0].CHTorF[x]);
+		checkP2A()
 		x++;
 	}
 }
+function checkP2A() {
+	if (testingv)
+	{
+		if (winP[0].CHTorF.length > 2)
+		{
+		}
+		else
+		{
+			winP[0].CHTorF = [];
+		}
+	}
+}
+
+var winP = [
+	{
+	win: ['1','2','3'],
+	CHTorF: []
+},
+	{
+	win: ['4','5','6'],
+	CHTorF: []
+},
+	{
+	win: ['7','8','9'],
+	CHTorF: []
+},
+	{
+	win: ['1','4','7'],
+	CHTorF: []
+},
+	{
+	win: ['2','5','8'],
+	CHTorF: []
+},
+	{
+	win: ['3','6','9'],
+	CHTorF: []
+},
+	{
+	win: ['1','5','9'],
+	CHTorF: []
+},
+	{
+	win: ['3','5','7'],
+	CHTorF: []
+	}
+];
